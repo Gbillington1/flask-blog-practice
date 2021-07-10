@@ -1,0 +1,26 @@
+{% block blogPosts %}
+    {% for post in posts %}
+
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+
+            {% if post.content|length > 1 %}
+                {% for paragraph in post.content %}
+                    <p class='post-paragraph'>{{ paragraph }}</p>
+                {% endfor %}
+            {% else %}
+                <p class='post-paragraph'>{{ post.content[0] }}</p>
+            {% endif %}
+
+            </div>
+        </article>    
+
+    {% endfor %}
+{% endblock blogPosts %}
+
+
